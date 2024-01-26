@@ -2,6 +2,13 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 
+require('dotenv').config();
+
+if (!process.env.JWT_SECRET) {
+    console.error('JWT_SECRET is not set');
+    return res.status(500).send('Internal Server Error');
+}
+
 const app = express();
 app.use(bodyParser.json());
 
@@ -20,6 +27,7 @@ connection.connect(err => {
 });
 
 require('./backend.js')(app, connection);
+require('./auth.js')(app, connection);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
