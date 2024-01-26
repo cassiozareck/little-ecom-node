@@ -8,7 +8,7 @@ module.exports = function(app, connection) {
             return res.status(400).send('Invalid ID format');
         }
         // MySQL query to find the item
-        const query = 'SELECT * FROM items WHERE id = ?';
+        const query = 'SELECT * FROM products WHERE id = ?';
         connection.query(query, [id], (err, results) => {
             if (err) {
                 console.error(err);
