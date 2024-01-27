@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  ecom-sql:
+    image: mysql:latest
+    container_name: ecom-sql
+    environment:
+      MYSQL_DATABASE: ecom-db
+      MYSQL_USER: cassio
+      MYSQL_PASSWORD: 123123
+      MYSQL_ROOT_PASSWORD: 123123
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"  
+
+volumes:
+  mysql_data:
+
