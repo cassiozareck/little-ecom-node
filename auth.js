@@ -7,8 +7,6 @@ module.exports = function(app, connection) {
     // Also uses a regular expression to validate the email
     app.post('/register', async (req, res) => {
         try {
-            console.log('Registering');
-
             // Validate the email
             if (!validateEmail(req.body.email)) {
                 return res.status(400).send('Invalid email address');
@@ -48,8 +46,6 @@ module.exports = function(app, connection) {
     // It uses bcrypt to compare the password
     app.post('/login', async (req, res) => {
         try {
-            console.log('Logging in');
-
             // Validate the email
             if (!validateEmail(req.body.email)) {
                 return res.status(400).send('Invalid email address');
@@ -89,8 +85,6 @@ module.exports = function(app, connection) {
     // This endpoint will validate JWT tokens, returning the username (email)
     // if every conditions (valid exp. date, token...) is meet
     app.post('/validate-token', (req, res) => {
-        console.log("Validating token");
-
         const { token } = req.body;
 
         if (!token) {

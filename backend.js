@@ -1,4 +1,4 @@
-module.exports = function(app, connection) {
+module.exports = function(app, connection, checkLogin) {
 
     // GetProductByID endpoint
     app.get('/product/:id', (req, res) => {
