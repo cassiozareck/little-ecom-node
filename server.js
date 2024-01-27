@@ -51,7 +51,7 @@ function checkLogin(req, res, next) {
 
 // MySQL connection setup
 const connection = mysql.createConnection({
-    host: '172.17.0.2',
+    host: 'localhost',
     user: 'cassio',
     password: '123123',
     database: 'ecom-db'
